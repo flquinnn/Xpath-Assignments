@@ -4,6 +4,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <dependencies>
+        <!-- Playwright -->
+        <dependency>
+            <groupId>com.microsoft.playwright</groupId>
+            <artifactId>playwright</artifactId>
+            <version>1.44.0</version>
+        </dependency>
+
+        <!-- TestNG (nếu chưa có) -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.10.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <groupId>org.example</groupId>
     <artifactId>Xpath-Assignments</artifactId>
     <version>1.0-SNAPSHOT</version>
