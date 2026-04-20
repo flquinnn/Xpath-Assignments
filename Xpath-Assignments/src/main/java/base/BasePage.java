@@ -1,6 +1,7 @@
 package base;
 
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Locator;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,26 +13,26 @@ public class BasePage {
         this.page = page;
     }
 
-    // Hàm tạo XPath động dùng Axis
-    protected String getInputElementByLabel(String label) {
-        return String.format("//label[contains(text(),'%s')]/following-sibling::div/input", label);
+    //Actions
+    protected void click(String xpath) {
+        page.locator(xpath).click();
     }
 
-    protected String getTextAreaElementByLabel(String label) {
-        return String.format("//label[contains(text(),'%s')]/following-sibling::div/textarea", label);
+    protected void fill(String xpath, String value) {
+        page.locator(xpath).fill(value);
     }
 
-    protected String getSelectionElementByLabel(String label, String value) {
-        return String.format("//label[contains(text(),'%s')]/following-sibling::div//label[contains(text(),'%s')]", label, value);
+    protected void selectOption(String xpath, String value) {
+        page.locator(xpath).selectOption(value);
     }
 
-    // Hàm upload file có check tồn tại
+    //Upload function
     public void uploadFile(String selector, String relativePath) {
         Path filePath = Paths.get(relativePath);
         if (Files.exists(filePath)) {
             page.setInputFiles(selector, filePath);
         } else {
-            throw new RuntimeException("CRITICAL: File không tồn tại tại: " + filePath.toAbsolutePath());
+            throw new RuntimeException("CRITICAL: File doesn't exist: " + filePath.toAbsolutePath());
         }
     }
 }

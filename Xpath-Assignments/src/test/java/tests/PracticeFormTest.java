@@ -2,7 +2,7 @@ package tests;
 
 import base.BaseTest;
 import org.example.pages.PracticeFormPage;
-import org.testng.annotations.Test; // Import của TestNG
+import org.testng.annotations.Test;
 import java.util.LinkedHashMap;
 import java.util.Map;
 

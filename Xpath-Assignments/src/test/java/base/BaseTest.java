@@ -10,7 +10,7 @@ public class BaseTest {
     protected BrowserContext context;
     protected Page page;
 
-    @BeforeMethod // Đánh dấu hàm này chạy TRƯỚC mỗi test case
+    @BeforeMethod
     public void setup() {
         playwright = Playwright.create();
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
