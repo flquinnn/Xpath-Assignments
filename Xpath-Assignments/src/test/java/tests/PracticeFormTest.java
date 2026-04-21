@@ -1,8 +1,8 @@
 package tests;
 
 import org.example.base.BaseTest;
-import pages.PracticeFormPage;
 import org.testng.annotations.Test;
+import pages.PracticeFormPage;
 
 import java.io.File;
 import java.util.LinkedHashMap;
