@@ -1,4 +1,4 @@
-package base;
+package org.example.pages.base;
 
 import com.microsoft.playwright.*;
 import org.testng.annotations.AfterMethod;

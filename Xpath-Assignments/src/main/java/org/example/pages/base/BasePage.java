@@ -1,4 +1,4 @@
-package base;
+package org.example.pages.base;
 
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Locator;
@@ -26,13 +26,12 @@ public class BasePage {
         page.locator(xpath).selectOption(value);
     }
 
-    //Upload function
+    //Upload File function
     public void uploadFile(String selector, String relativePath) {
         Path filePath = Paths.get(relativePath);
-        if (Files.exists(filePath)) {
-            page.setInputFiles(selector, filePath);
-        } else {
+        if (!Files.exists(filePath)) {
             throw new RuntimeException("CRITICAL: File doesn't exist: " + filePath.toAbsolutePath());
         }
+        page.setInputFiles(selector, filePath);
     }
 }
