@@ -1,6 +1,6 @@
 package tests;
 
-import org.example.pages.base.BaseTest;
+import org.example.base.BaseTest;
 import pages.PracticeFormPage;
 import org.testng.annotations.Test;
 

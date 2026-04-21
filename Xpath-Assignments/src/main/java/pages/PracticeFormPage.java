@@ -1,8 +1,7 @@
 package pages;
 
-import org.example.pages.base.BasePage;
-import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import org.example.base.BasePage;
 
 import java.nio.file.Paths;
 import java.util.Map;
@@ -16,7 +15,7 @@ public class PracticeFormPage extends BasePage {
 
     //Type Field
     private String textField(String label) {
-        return String.format("//label[normalize-space(text())='%s:']/following-sibling::div/*[self::input or self::textarea]", label);
+        return String.format("//label[normalize-space(.)='%s:']/following-sibling::div/*[self::input or self::textarea]", label);
     }
 
     private String radioOrCheckbox(String label, String value) {
