@@ -1,16 +1,17 @@
-package pages;
+package org.example.pages;
 
 import com.microsoft.playwright.Page;
-import org.example.base.BasePage;
 
 import java.nio.file.Paths;
 import java.util.Map;
 import java.io.File;
 
-public class PracticeFormPage extends BasePage {
+public class PracticeFormPage {
+
+    private final Page page;
 
     public PracticeFormPage(Page page) {
-        super(page);
+        this.page=page;
     }
 
     //Type Field
@@ -52,7 +53,7 @@ public class PracticeFormPage extends BasePage {
             if (page.locator(radioOrCheckbox(label,value)).isVisible()) {
                 page.locator(radioOrCheckbox(label,value)).check();
             } else if (page.locator(textField(label)).isVisible()) {
-                fill(textField(label),value);
+                page.fill(textField(label),value);
             } else if (page.locator(dropdown(label)).isVisible()) {
                 page.selectOption(dropdown(label),value);
             } else if (page.locator(fileUploadField(label)).isVisible()) {
@@ -62,6 +63,6 @@ public class PracticeFormPage extends BasePage {
     }
 
     public void submit() {
-        click("//input[@type='submit' and @value='Login']");
+        page.click("//input[@type='submit' and @value='Login']");
     }
 }

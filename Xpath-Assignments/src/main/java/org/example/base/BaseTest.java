@@ -21,11 +21,6 @@ public class BaseTest {
         page = context.newPage();
     }
 
-    @Test
-    public void testExercise01() {
-        System.out.println("Run Exercise 1: Handle Form...");
-    }
-
     @AfterMethod
     public void tearDown() {
         if (context != null) context.close();
