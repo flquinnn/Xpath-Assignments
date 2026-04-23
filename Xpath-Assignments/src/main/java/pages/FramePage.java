@@ -11,10 +11,12 @@ public class FramePage {
         this.page = page;
     }
 
-    public void navigate(String url) {
-        page.navigate(url);
+    public void navigateToFramesCategory() {
+        // Click in Alerts, Frames & Windows
+        page.click("//h2[normalize-space(.)='Alerts, Frames & Windows']");
+        // Click in Frames
+        page.click("//a[normalize-space(.)='Frames']");
     }
-
     // Locator for Iframe
     private String iframeXpath(String frameName) {
         return String.format("//h2[text()='%s']/following-sibling::iframe[1]", frameName);
