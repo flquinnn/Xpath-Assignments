@@ -29,17 +29,23 @@ public class NestedFramePage {
 
     public void clickInsideNestedFrame() {
         FrameLocator parentFrame = page.frameLocator(parentFrameXpath());
-
         FrameLocator childFrame = parentFrame.frameLocator(childFrameXpath());
 
         childFrame.locator(clickHereBtnXpath()).click();
         parentFrame.locator(clickHereBtnXpath()).click();
     }
 
-    public String getProcessingText() {
+    public String getChildFrameProcessingText() {
         return page.frameLocator(parentFrameXpath())
                 .frameLocator(childFrameXpath())
                 .locator("//p[@id='processing']")
-                .innerText();
+                .innerText().trim();
     }
+
+    public String getParentFrameProcessingText() {
+        return page.frameLocator(parentFrameXpath())
+                .locator("//p[@id='processing']")
+                .innerText().trim();
+    }
+
 }

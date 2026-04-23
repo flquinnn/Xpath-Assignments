@@ -14,9 +14,15 @@ public class NestedFrameTest extends BaseTest {
 
         nestedPage.clickInsideNestedFrame();
 
-        String resultText = nestedPage.getProcessingText();
-        System.out.println("Text Result: " + resultText);
+        //Check Text in ParentFrame
+        String parentResult = nestedPage.getParentFrameProcessingText();
+        System.out.println("Parent Text Result: " + parentResult);
 
-        Assert.assertTrue(resultText.contains("Clicked"), "Text verify is wrong!");
-    }
+        Assert.assertEquals(parentResult, "Hooray..! You clicked the button from iframe 1", "Text Verify is wrong!");
+
+        //Check Text in ChildFrame
+        String childResult = nestedPage.getChildFrameProcessingText();
+        System.out.println("Child Text Result: " + childResult);
+
+        Assert.assertEquals(childResult, "Hooray..! You clicked the button from iframe 2", "Text Verify is wrong!");}
 }
