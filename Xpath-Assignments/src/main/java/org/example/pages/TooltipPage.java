@@ -9,13 +9,10 @@ public class TooltipPage {
         this.page=page;
     }
 
-    public void navigateToTooltipsCategory() {
-        page.click("//h2[normalize-space(.)='Widgets']");
-        page.click("//a[normalize-space(.)='Tool Tips']");
-    }
+    private static final String tooltipBtn = "//button[normalize-space(text())='%s']";
 
-    public void hoverOnTooltipButton(String placement) {
-        page.hover("//button[@data-bs-placement='" + placement + "']");
+    public void hoverOnTooltipButton(String buttonText) {
+        page.hover(String.format(tooltipBtn, buttonText));
     }
 
     public String getTooltipInnerText() {
