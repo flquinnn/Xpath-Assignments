@@ -4,7 +4,7 @@ import com.microsoft.playwright.Page;
 import org.example.base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.FramePage;
+import org.example.pages.FramePage;
 
 public class FrameTest extends BaseTest {
 

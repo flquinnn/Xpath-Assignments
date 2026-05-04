@@ -1,4 +1,4 @@
-package pages;
+package org.example.pages;
 
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Page;
