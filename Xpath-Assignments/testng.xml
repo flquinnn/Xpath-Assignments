@@ -3,7 +3,7 @@
 <suite name="Automation Assignment Suite">
     <test name="Practice Exercises">
         <classes>
-            <class name="tests.DropdownTest"/>
+            <class name="tests.UploadDownloadTest"/>
         </classes>
     </test>
 </suite>
