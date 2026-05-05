@@ -6,6 +6,7 @@
             <class name="tests.PracticeFormTest"/>
             <class name="tests.FrameTest"/>
             <class name="tests.NestedFrameTest"/>
+            <class name="tests.AlertAndWindowTest"/>
         </classes>
     </test>
 </suite>
