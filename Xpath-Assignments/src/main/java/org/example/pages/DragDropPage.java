@@ -14,13 +14,10 @@ public class DragDropPage {
     }
 
     public void dragAndDropElement() {
-        page.waitForSelector(dragElement);
-        page.waitForSelector(dropElement);
         page.locator(dragElement).dragTo(page.locator(dropElement));
     }
 
     public String getDropSuccessMessage() {
-        page.waitForSelector(dropElement, new Page.WaitForSelectorOptions().setState(WaitForSelectorState.VISIBLE));
         return page.locator(dropElement).innerText();
     }
 }
