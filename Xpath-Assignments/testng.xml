@@ -10,6 +10,7 @@
             <class name="tests.TooltipTest"/>
             <class name="tests.DropdownTest"/>
             <class name="tests.ColorTest"/>
+            <class name="tests.BrokenLinkTest"/>
         </classes>
     </test>
 </suite>
