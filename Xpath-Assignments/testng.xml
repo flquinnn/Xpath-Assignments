@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Automation Assignment Suite">
-    <test name="Exercise 2">
+    <test name="Practice Exercises">
         <classes>
+            <class name="tests.PracticeFormTest"/>
+            <class name="tests.FrameTest"/>
+            <class name="tests.NestedFrameTest"/>
+            <class name="tests.AlertAndWindowTest"/>
+            <class name="tests.TooltipTest"/>
+            <class name="tests.DropdownTest"/>
             <class name="tests.ColorTest"/>
         </classes>
     </test>
