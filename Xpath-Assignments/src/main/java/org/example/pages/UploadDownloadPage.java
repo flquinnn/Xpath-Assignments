@@ -38,7 +38,7 @@ public class UploadDownloadPage {
             page.click(xpath);
         });
 
-        String downloadDir = System.getProperty("user.dir") + File.separator + "target" + File.separator + "downloads";
+        String downloadDir = System.getProperty("user.dir") + File.separator + "Downloads";
         String finalPath = downloadDir + File.separator + download.suggestedFilename();
 
         //Save file
