@@ -35,16 +35,6 @@ public class UploadDownloadTest extends BaseTest {
 
     @Test
     public void TC02_HandleDownloadFile() {
-        Download download = upDownPage.downloadFile("Download");
-
-        String downloadDir = System.getProperty("user.dir") + File.separator + "target" + File.separator + "downloads";
-        String finalPath = downloadDir + File.separator + download.suggestedFilename();
-
-        download.saveAs(Paths.get(finalPath));
-
-        //Check file
-        File file = new File(finalPath);
-        Assert.assertTrue(file.exists(), "Download fails: File does not exist on disk!");
-        System.out.println("File is in: " + file.getAbsolutePath());
+        String downloadedPath = upDownPage.downloadFile("Download");
     }
 }

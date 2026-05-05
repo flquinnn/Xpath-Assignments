@@ -2,6 +2,7 @@ package org.example.pages;
 
 import com.microsoft.playwright.Download;
 import com.microsoft.playwright.Page;
+import org.testng.Assert;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -25,18 +26,31 @@ public class UploadDownloadPage {
     public void uploadFile(String absolutePath) {
         File file = new File(absolutePath);
         if (!file.exists()) {
-            System.err.println("ERROR: File does not exist " + absolutePath);
-            return;
+            throw new RuntimeException("ERROR: File does not exist " + absolutePath);
         }
         page.setInputFiles(uploadInput, Paths.get(absolutePath));
     }
 
-    public Download downloadFile(String buttonText) {
+    public String downloadFile(String buttonText) {
         String xpath = String.format(downloadButton, buttonText);
 
-        return page.waitForDownload(new Page.WaitForDownloadOptions().setTimeout(60000), () -> {
+        Download download = page.waitForDownload(new Page.WaitForDownloadOptions().setTimeout(60000), () -> {
             page.click(xpath);
         });
+
+        String downloadDir = System.getProperty("user.dir") + File.separator + "target" + File.separator + "downloads";
+        String finalPath = downloadDir + File.separator + download.suggestedFilename();
+
+        //Save file
+        download.saveAs(Paths.get(finalPath));
+
+        //Check file
+        File file = new File(finalPath);
+        if (!file.exists()) {
+            throw new RuntimeException("FAILED: File could not be saved to " + finalPath);
+        }
+
+        return finalPath;
     }
 
     public String getUploadedFilePath() {
