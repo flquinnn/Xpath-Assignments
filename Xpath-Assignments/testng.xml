@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Automation Assignment Suite">
-    <test name="Nested Frames Test">
+    <test name="Practice Exercises">
         <classes>
+            <class name="tests.PracticeFormTest"/>
+            <class name="tests.FrameTest"/>
             <class name="tests.NestedFrameTest"/>
         </classes>
     </test>
