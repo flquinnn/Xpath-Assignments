@@ -12,12 +12,11 @@ public class ColorPage {
     }
 
     private String getButtonXPath(String buttonName) {
-        return String.format(buttonXpath, buttonName, buttonName);
+        return String.format(buttonXpath, buttonName);
     }
 
     public String getButtonColor(String buttonName) {
         String xpath = getButtonXPath(buttonName);
-        page.waitForSelector(xpath);
         return (String) page.locator(xpath).evaluate(
                 "el => window.getComputedStyle(el).backgroundColor"
         );
