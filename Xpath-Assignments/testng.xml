@@ -9,6 +9,7 @@
             <class name="tests.AlertAndWindowTest"/>
             <class name="tests.TooltipTest"/>
             <class name="tests.DropdownTest"/>
+            <class name="tests.ColorTest"/>
         </classes>
     </test>
 </suite>
