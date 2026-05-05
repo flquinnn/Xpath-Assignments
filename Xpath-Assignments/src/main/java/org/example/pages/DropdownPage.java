@@ -1,7 +1,9 @@
 package org.example.pages;
 
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.SelectOption;
+import com.microsoft.playwright.options.WaitForSelectorState;
 
 import java.util.List;
 
@@ -11,23 +13,29 @@ public class DropdownPage {
         this.page=page;
     }
 
+    private static final String selectOptionXpath = "//div[@role='listbox']//div[normalize-space(.)='%s']";
+
     public void navigateToSelectMenu() {
         page.click("//h2[normalize-space(.)='Widgets']");
         page.click("//a[normalize-space(.)='Select Menu']");
     }
 
     public void selectMultipleOptions(String labelName, List<String> options) {
-        String inputXpath = String.format("//h6[normalize-space(.)='%s']/following-sibling::div//input", labelName);
+        String inputXpath = String.format("//h6[normalize-space(.)='%s']/following-sibling::div//label", labelName);
+        Locator inputLocator = page.locator(inputXpath);
 
         //Open
-        page.locator(inputXpath).click(new com.microsoft.playwright.Locator.ClickOptions().setForce(true));
+        inputLocator.scrollIntoViewIfNeeded();
+        inputLocator.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+        inputLocator.click();
 
         for (String option : options) {
-            page.click("//div[@role='listbox']/descendant::div[normalize-space(.)='" + option + "']");
+            String optionXpath = String.format("//div[@role='listbox']/descendant::div[normalize-space(.)='%s']", option);
+            page.locator(optionXpath).click();
         }
 
         //Close
-        page.locator(inputXpath).click(new com.microsoft.playwright.Locator.ClickOptions().setForce(true));
+        page.keyboard().press("Escape");
     }
 
     public void selectSingleOption(String labelName, String optionLabel) {
