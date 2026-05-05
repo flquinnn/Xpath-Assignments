@@ -3,6 +3,13 @@
 <suite name="Automation Assignment Suite">
     <test name="Practice Exercises">
         <classes>
+            <class name="tests.PracticeFormTest"/>
+            <class name="tests.FrameTest"/>
+            <class name="tests.NestedFrameTest"/>
+            <class name="tests.AlertAndWindowTest"/>
+            <class name="tests.TooltipTest"/>
+            <class name="tests.DropdownTest"/>
+            <class name="tests.ColorTest"/>
             <class name="tests.BrokenLinkTest"/>
         </classes>
     </test>
