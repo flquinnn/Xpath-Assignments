@@ -11,6 +11,7 @@
             <class name="tests.DropdownTest"/>
             <class name="tests.ColorTest"/>
             <class name="tests.BrokenLinkTest"/>
+            <class name="tests.DragDropTest"/>
         </classes>
     </test>
 </suite>
