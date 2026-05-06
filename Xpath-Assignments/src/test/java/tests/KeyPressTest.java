@@ -38,4 +38,10 @@ public class KeyPressTest extends BaseTest {
         keyPressPage.pressKey("Escape");
         Assert.assertEquals(keyPressPage.getResultText(), "You entered: ESCAPE");
     }
+
+    @Test
+    public void TC05_PressBackspaceKey() {
+        keyPressPage.pressKey("Backspace");
+        Assert.assertEquals(keyPressPage.getResultText(), "You entered: BACK_SPACE");
+    }
 }
