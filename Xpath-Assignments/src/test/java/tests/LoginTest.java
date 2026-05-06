@@ -40,4 +40,14 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(loginPage.isAlertVisible("Your password is invalid!"), "Error message for invalid password isn't displayed!");
         Assert.assertEquals(loginPage.getCurrentUrl(), loginUrl, "Remain on the login page");
     }
+
+    @Test
+    public void TC04_LoginWithoutUsernamePassword() {
+        loginPage.login("", "");
+
+        Assert.assertTrue(loginPage.isAlertVisible("Your username is invalid!"),
+                "Error message for empty username and password isn't displayed!");
+
+        Assert.assertEquals(loginPage.getCurrentUrl(), loginUrl, "Remain on the login page");
+    }
 }
