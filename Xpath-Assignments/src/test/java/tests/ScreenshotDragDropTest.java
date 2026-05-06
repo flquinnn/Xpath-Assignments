@@ -25,7 +25,7 @@ public class ScreenshotDragDropTest extends BaseTest {
     @Test
     public void TC01_VerifyDragDropWithScreenshots() {
         //Screenshot before Drag and Drop
-        dragDropPage.takeScreenshot("01_Before_Drop");
+        dragDropPage.takeScreenshot();
 
         //Drag and Drop
         dragDropPage.dragAndDropElement();
@@ -33,6 +33,6 @@ public class ScreenshotDragDropTest extends BaseTest {
         Assert.assertEquals(successMsg, "Dropped!", "Error: Drop isn't successful");
 
         //Screenshot after Drag and Drop
-        dragDropPage.takeScreenshot("02_After_Drop_Success");
+        dragDropPage.takeScreenshot();
     }
 }
