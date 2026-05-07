@@ -25,13 +25,21 @@ public class ScreenshotDragDropPage {
         return page.locator(dropElement).innerText();
     }
 
-    public void takeScreenshot() {
+    public String createFileName() {
         DateTimeFormatter dtFormat = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
         String timestamp = dtFormat.format(LocalDateTime.now());
 
-        String fileName = String.format("%02d_%s.png", screenshotIndex++, timestamp);
+        return String.format("%02d_%s.png", screenshotIndex++, timestamp);
+    }
 
+    public void takeFullPageScreenshot(){
         page.screenshot(new Page.ScreenshotOptions()
-                .setPath(Paths.get("Screenshots/" + fileName)));
+                .setFullPage(true)
+                .setPath(Paths.get("Screenshots/FullPage" + createFileName())));
+    }
+
+    public void takeElementScreenshot(){
+        page.locator(dropElement).screenshot(new Locator.ScreenshotOptions()
+                .setPath(Paths.get("Screenshots/Element" + createFileName())));
     }
 }

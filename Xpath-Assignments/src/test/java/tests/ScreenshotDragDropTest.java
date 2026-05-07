@@ -24,15 +24,18 @@ public class ScreenshotDragDropTest extends BaseTest {
 
     @Test
     public void TC01_VerifyDragDropWithScreenshots() {
-        //Screenshot before Drag and Drop
-        dragDropPage.takeScreenshot();
+        //Screenshot Full Page before Drag and Drop
+        dragDropPage.takeFullPageScreenshot();
 
         //Drag and Drop
         dragDropPage.dragAndDropElement();
         String successMsg = dragDropPage.getDropSuccessMessage();
         Assert.assertEquals(successMsg, "Dropped!", "Error: Drop isn't successful");
 
-        //Screenshot after Drag and Drop
-        dragDropPage.takeScreenshot();
+        //Screenshot Full Page after Drag and Drop
+        dragDropPage.takeFullPageScreenshot();
+
+        //Screenshot Element after Drag and Drop
+        dragDropPage.takeElementScreenshot();
     }
 }
