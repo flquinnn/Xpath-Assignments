@@ -35,11 +35,16 @@ public class ScreenshotDragDropPage {
     public void takeFullPageScreenshot(){
         page.screenshot(new Page.ScreenshotOptions()
                 .setFullPage(true)
-                .setPath(Paths.get("Screenshots/FullPage" + createFileName())));
+                .setPath(Paths.get("Screenshots/" + createFileName())));
     }
 
     public void takeElementScreenshot(){
         page.locator(dropElement).screenshot(new Locator.ScreenshotOptions()
-                .setPath(Paths.get("Screenshots/Element" + createFileName())));
+                .setPath(Paths.get("Screenshots/" + createFileName())));
+    }
+
+    public void takeScreenshot() {
+        page.screenshot(new Page.ScreenshotOptions()
+                .setPath(Paths.get("Screenshots/"  + createFileName())));
     }
 }

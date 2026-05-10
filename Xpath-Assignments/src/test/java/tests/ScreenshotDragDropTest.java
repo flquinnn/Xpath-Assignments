@@ -34,6 +34,7 @@ public class ScreenshotDragDropTest extends BaseTest {
 
         //Screenshot Full Page after Drag and Drop
         dragDropPage.takeFullPageScreenshot();
+        dragDropPage.takeScreenshot();
 
         //Screenshot Element after Drag and Drop
         dragDropPage.takeElementScreenshot();
