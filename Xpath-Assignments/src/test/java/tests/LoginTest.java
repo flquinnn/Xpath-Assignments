@@ -50,4 +50,24 @@ public class LoginTest extends BaseTest {
 
         Assert.assertEquals(loginPage.getCurrentUrl(), loginUrl, "Remain on the login page");
     }
+
+    @Test
+    public void TC05_LoginWithUsernameOnly(){
+        loginPage.login("practice", "");
+
+        Assert.assertTrue(loginPage.isAlertVisible("Your password is invalid!"),
+                "Error message for empty password isn't displayed!");
+
+        Assert.assertEquals(loginPage.getCurrentUrl(), loginUrl, "Remain on the login page");
+    }
+
+    @Test
+    public void TC06_LoginWithPasswordOnly(){
+        loginPage.login("", "SuperSecretPassword!");
+
+        Assert.assertTrue(loginPage.isAlertVisible("Your username is invalid!"),
+                "Error message for empty username isn't displayed!");
+
+        Assert.assertEquals(loginPage.getCurrentUrl(), loginUrl, "Remain on the login page");
+    }
 }
