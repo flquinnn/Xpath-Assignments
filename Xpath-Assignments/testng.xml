@@ -15,6 +15,7 @@
             <class name="tests.BasicAuthTest"/>
             <class name="tests.UploadDownloadTest"/>
             <class name="tests.KeyPressTest"/>
+            <class name="tests.ScreenshotDragDropTest"/>
         </classes>
     </test>
 </suite>
