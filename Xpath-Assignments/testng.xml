@@ -12,6 +12,9 @@
             <class name="tests.ColorTest"/>
             <class name="tests.BrokenLinkTest"/>
             <class name="tests.DragDropTest"/>
+            <class name="tests.BasicAuthTest"/>
+            <class name="tests.UploadDownloadTest"/>
+            <class name="tests.KeyPressTest"/>
             <class name="tests.ScreenshotDragDropTest"/>
         </classes>
     </test>
